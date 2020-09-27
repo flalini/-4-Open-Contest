@@ -24,16 +24,16 @@ size_t	lcm(size_t k, size_t l)
 
 int		main(void)
 {
-	int				N;
-	size_t			tmp;
-	size_t			result[2];
-	size_t			i = -1;
-	unsigned int	s[50][2];
+	int		N;
+	size_t	tmp;
+	size_t	result[2];
+	size_t	i = -1;
+	size_t	s[50][2];
 
 	scanf("%d", &N);
 	while (++i < N)
 	{
-		scanf("%u %u", &(s[i][0]), &(s[i][1]));
+		scanf("%zu %zu", &(s[i][0]), &(s[i][1]));
 		tmp = gcd(s[i][0], s[i][1]);
 		if (tmp != 1)
 		{
@@ -56,6 +56,6 @@ int		main(void)
 		result[0] /= tmp;
 		result[1] /= tmp;
 	}
-	printf("%ld %ld", result[1], result[0]);
+	printf("%zu %zu", result[1], result[0]);
 	return (0);
 }
