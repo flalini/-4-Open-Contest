@@ -6,34 +6,34 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:28:19 by marvin            #+#    #+#             */
-/*   Updated: 2020/09/26 15:28:19 by marvin           ###   ########.fr       */
+/*   Updated: 2020/09/27 16:44:44 by ijang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	gcd(int k, int l)
+size_t	gcd(size_t k, size_t l)
 {
 	return (l ? gcd(l, k % l) : k);
 }
 
-int	lcm(int k, int l)
+size_t	lcm(size_t k, size_t l)
 {
 	return (k / gcd(k, l) * l);
 }
 
-int	main(void)
+int		main(void)
 {
-	int	N;
-	int	tmp;
-	int	result[2];
-	int	i = -1;
-	int	s[50][2];
+	int				N;
+	size_t			tmp;
+	size_t			result[2];
+	size_t			i = -1;
+	unsigned int	s[50][2];
 
 	scanf("%d", &N);
 	while (++i < N)
 	{
-		scanf("%d %d", &(s[i][0]), &(s[i][1]));
+		scanf("%u %u", &(s[i][0]), &(s[i][1]));
 		tmp = gcd(s[i][0], s[i][1]);
 		if (tmp != 1)
 		{
@@ -56,6 +56,6 @@ int	main(void)
 		result[0] /= tmp;
 		result[1] /= tmp;
 	}
-	printf("%d %d", result[1], result[0]);
+	printf("%ld %ld", result[1], result[0]);
 	return (0);
 }
